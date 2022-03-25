@@ -28,3 +28,6 @@ class Image(models.Model):
     def search_by_title(cls,search_term):
         images = cls.objects.filter(title__icontains=search_term)
         return images
+
+class Location(models.Model):
+    location = models.CharField(max_length=30)
