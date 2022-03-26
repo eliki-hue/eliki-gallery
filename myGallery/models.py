@@ -3,6 +3,15 @@ from django.db import models
 from datetime import datetime as dt
 
 # Create your models here.
+class Location(models.Model):
+    location = models.CharField(max_length=30)
+
+
+class Category(models.Model):
+    name = models.CharField(max_length =30)
+
+
+
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
     image_name = models.CharField(max_length =60)
@@ -19,19 +28,19 @@ class Image(models.Model):
     #     images = cls.objects.filter(post = today)
     #     return images
 
-    @classmethod
-    def location_images(cls,place):
-        images = cls.objects.filter(post_date = place)
-        return images
+    def __str__(self):
+        return self.image
 
-    @classmethod
-    def search_by_title(cls,search_term):
-        images = cls.objects.filter(title__icontains=search_term)
-        return images
+    def save_image(self):
+        self.save()
 
-class Location(models.Model):
-    location = models.CharField(max_length=30)
+    # @classmethod
+    # def location_images(cls,place):
+    #     images = cls.objects.filter(post_date = place)
+    #     return images
 
+    # @classmethod
+    # def search_by_title(cls,search_term):
+    #     images = cls.objects.filter(title__icontains=search_term)
+    #     return images
 
-class Category(models.Model):
-    name = models.CharField(max_length =30)
