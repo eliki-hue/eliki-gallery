@@ -19,14 +19,12 @@ class Location(models.Model):
     def delete_location(self,place):
         to_delete= Location.objects.filter(location=place).delete()
     
-    # def update_location(self,location,new_location):
-    #     to_update = Location.objects.filter(location=location).update(location=new_location)
-    #     self.to_update.save()
+    def update_location(self,location,new_location):
+        Location.objects.filter(location=location).update(location=new_location)
+        self.save()
         
-    def updating(self,place,new_value):
-        obj = Location.objects.get(location=place)
-        obj.field = new_value
-        self.obj.save()
+   
+        
 
 
 
@@ -37,6 +35,13 @@ class Category(models.Model):
         return self.name
 
     def save_category(self):
+        self.save()
+
+    def delete_category(self,category):
+        to_delete= Category.objects.filter(name=category).delete()
+    
+    def update_category(self,category,new_category):
+        Category.objects.filter(name=category).update(name=new_category)
         self.save()
 
 
