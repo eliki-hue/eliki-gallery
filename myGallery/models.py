@@ -65,6 +65,12 @@ class Image(models.Model):
     def save_image(self):
         self.save()
 
+    @classmethod
+    def search_by_category(cls,search_term):
+        items = cls.objects.filter(image_category__icontains=search_term)
+        return items
+
+
     # @classmethod
     # def todays_news(cls):
     #     today = dt.date.today()

@@ -13,3 +13,16 @@ def home(request):
     # news = Image.todays_news()
     images=Image.objects.all()
     return render (request,'home.html',{'message': welcome, 'images':images})
+
+def search_results(request):
+
+    if 'image_category' in request.GET and request.GET["image_category"]:
+        search_term = request.GET.get("image_category")
+        searched_category = Image.objects.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"images": searched_category})
+
+    else:
+        message = "You haven't searched for any category"
+        return render(request, 'search.html',{"message":message})
