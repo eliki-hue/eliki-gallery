@@ -1,4 +1,6 @@
 
+from tkinter import image_names
+from unicodedata import category
 from django.db import models
 from datetime import datetime as dt
 
@@ -66,8 +68,18 @@ class Image(models.Model):
         self.save()
 
     @classmethod
-    def search_by_category(cls,search_term):
-        items = cls.objects.filter(image_category=search_term)
+    def search_by_category(cls,category):
+        items = cls.objects.filter(image_name=category)
+        return items
+
+    @classmethod
+    def get_image_by_id(cls,id):
+        items = cls.objects.get(id=id)
+        return items
+
+    @classmethod
+    def filter_by_location(cls,location):
+        items = cls.objects.filter(image_name=location)
         return items
 
 
