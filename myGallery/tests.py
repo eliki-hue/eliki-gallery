@@ -63,7 +63,7 @@ class ImageTestClass(TestCase):
         self.test_category= Category(name = 'testcategory')
         self.test_category.save_category()
 
-        self.image1=Image(image='image1.png',image_name="image1",image_description='test image', image_location="testlocation",image_category="testcategory")
+        self.image1=Image(image='image1.png',image_name="image1",image_description='test image', image_location=self.test_location,image_category=self.test_category)
 
         self.image1.save_image()
 
