@@ -28,7 +28,7 @@ def search_results(request):
         searched_category = Image.get_image_by_id(search_term)
         message = f"{search_term}"
 
-        return render(request, 'search.html',{"message":message,"images": searched_category})
+        return render(request, 'search_id.html',{'message':message,"image_id": searched_category})
 
     elif 'image_location' in request.GET and request.GET["image_location"]:
         search_term = request.GET.get("image_location")

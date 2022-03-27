@@ -1,0 +1,29 @@
+{%extends 'base.html'%} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if image_id%}
+      <h2>Found searched image with id {{message}}</h2>
+    {% else %}
+      <h2> Image with id {{message}} is not available</h2>
+    {% endif %}
+
+  </div>
+
+  
+
+  {% if image_id %}
+  <div class="row">
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <img src="{{image_id.image.url}}" class="img-responsive" alt="Image">
+    </div>
+    {{image_id.image_description}}
+    {{image_id.image_name}}
+
+    
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
