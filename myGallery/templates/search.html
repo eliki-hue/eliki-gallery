@@ -12,21 +12,32 @@
   </div>
 
   <div class="row">
-      {{image_id.image_description}}
+      <!-- {{image_id.image_description}}
       {{image_id.image_name}}
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <img src="{{image_id.image.url}}" class="img-responsive" alt="Image">
-      </div>
+      </div> -->
 
   {% if images %}
     {% for image in images %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{image.image_name}}</h1>
-          <h3>{{image.image_description}}</h3>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <img src="{{image.image.url}}" class="img-responsive" alt="Image">
-          </div>
+    <!-- div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+    </div>
+    <h3><strong>Name: </strong> {{image.image_name}}</h3> 
+    <h3> <strong> Description:</strong> {{image.image_description}}</h3>
+    <h3><strong>Location: </strong>{{image.image_location}}</h3>
+    <h3><strong>Category: </strong>{{image.image_category}}</h3> -->
+  
+    <div class="card" style="width: 100%;height: auto;margin: 50px;">
+        <img src="{{image.image.url}}" class="img-responsive" style="width:100%;height:auto" alt="Image">
+        <div class="card-body" style="align-items: center;text-align: center;">
+            <h3><strong>Name: </strong> {{image.image_name}}</h3> 
+            <h3> <strong> Description:</strong> {{image.image_description}}</h3>
+            <h3><strong>Location: </strong>{{image.image_location}}</h3>
+            <h3><strong>Category: </strong>{{image.image_category}}</h3>
+        </div>
       </div>
+
     {% endfor %}
   {% endif %}
   </div>
