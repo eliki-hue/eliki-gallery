@@ -9,8 +9,7 @@ from myGallery.models import Image
 def home(request):
     welcome = 'Welcome to my image Gallery'
     
-    # date = dt.date.today()
-    # news = Image.todays_news()
+    
     images=Image.objects.all()
     return render (request,'home.html',{'message': welcome, 'images':images})
 
@@ -42,4 +41,13 @@ def search_results(request):
     else:
         message = "You haven't searched for any category"
         return render(request, 'search.html',{"message":message})
+
+
+def display(request,search_term):
+    
+        searched_category = Image.get_image_by_id(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search_id.html',{'message':message,"image_id": searched_category})
+
 

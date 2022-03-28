@@ -8,6 +8,72 @@
   {% for image in images %}
 
   <div class="row">
+    <!-- displaying images -->
+   
+    <!DOCTYPE html>
+    <title>My Example</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <div class="container-fluid">
+        
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#largeShoes">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="width: 100%;height: auto;">
+        <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+      </div>
+    </button>
+    
+    <!-- The modal -->
+    <div class="modal fade" id="largeShoes" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="modalLabelLarge">{{image.image_name}} detailed information</h4>
+    </div>
+    
+    <div class="modal-body">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+      </div>
+    </div>
+    
+    </div>
+    </div>
+    </div>
+    
+    </div>
+        
+    <!-- jQuery library -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <!-- Initialize Bootstrap functionality -->
+    <script>
+    // Initialize tooltip component
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+    
+    // Initialize popover component
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+    </script>
+  
+
+  {% empty %}
+  <div class="row">
+    <h2 class="text-center">There No Images</h2>
+  </div>
+  {% endfor %}
+
+</div>
+div class="row">
     <!-- displaying News articles -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <h2 class="text-center"> {{ image.image_name }} </h2>
@@ -17,18 +83,8 @@
 
     </div>
     <!--Display news Article images  -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <img src="{{image.image.url}}" class="img-responsive" alt="Image">
-      </div>
-  
-  </div>
-
-  {% empty %}
-  <div class="row">
-    <h2 class="text-center">There No Images</h2>
-  </div>
-  {% endfor %}
-
-</div>
+    <a href="/display/{{image.id}}"> <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+    </div></a>
 
 {% endblock %}
