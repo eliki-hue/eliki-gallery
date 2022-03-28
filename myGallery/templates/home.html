@@ -6,34 +6,35 @@
   
 
   <!-- Looping through news   -->
-  <div style="display: flex;">
-    {% for image in images %}
+  <!-- <div style="display: flex;"> -->
+    
 
   <div class="row">
+    {% for image in images %}
     <!-- displaying images -->
    
-    <!DOCTYPE html>
-    <title>Image Details</title>
     
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <div class="container">
-      <div class="row">
+    
+    
+  
+    
+    
       
-      </div>
-        <div class="grid-container" style="display:flex;padding: 20px; width: 100%;">
-          <div class="grid-item">
-            <button type="button" class="" data-toggle="modal" data-target="#pic{{image.id}}">
-            
-              <img src="{{image.image.url}}" class="img-responsive"  alt="Image">          
-                
+        <div class="col-sm-10" style="display:inline-block;padding: 10px; width: 25%;height: auto;">
+          
+          <button type="button" class="" data-toggle="modal" data-target="#pic{{image.id}}">
+          
+            <img src="{{image.image.url}}" class="img-responsive"  alt="Image">          
               
-          
             
+        
           
-          </button>
-          </div>
-        </div>
+        
+        </button>
+      </div>
+      </div>
+        
+        
     
     
     <!-- The modal -->
@@ -110,27 +111,16 @@
     </script>
   
 
-  {% empty %}
-  <div class="row">
+   {% empty %}
+   <div class="row">
     <h2 class="text-center">There No Images</h2>
-  </div>
-  {% endfor %}
+   </div>
+   {% endfor %}
   </div>
   
 
 </div>
-<div class="row">
-    <!-- displaying News articles
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <h2 class="text-center"> {{ image.image_name }} </h2>
 
-    <h4>{{image.image}}</h4>
-    <h4>{{image.image_description}}</h4>
-
-    </div>
-    Display news Article images 
-    <a href="/display/{{image.id}}"> <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <img src="{{image.image.url}}" class="img-responsive" alt="Image">
-    </div></a> -->
+    
 
 {% endblock %}
