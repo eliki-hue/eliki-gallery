@@ -3,6 +3,7 @@ from tkinter import image_names
 from unicodedata import category
 from django.db import models
 from datetime import datetime as dt
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.

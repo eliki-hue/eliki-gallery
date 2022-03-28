@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <div class="container-fluid">
         
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#largeShoes">
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#pic{{image.id}}">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="width: 100%;height: auto;">
         <img src="{{image.image.url}}" class="img-responsive" alt="Image">
       </div>
     </button>
     
     <!-- The modal -->
-    <div class="modal fade" id="largeShoes" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+    <div class="modal fade" id="pic{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
     
@@ -36,10 +36,21 @@
     </div>
     
     <div class="modal-body">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+      <div class="row">
+        <div class="">
+          <img src="{{image.image.url}}" class="img-responsive" style="width: 200%;height: auto;" alt="Image">
+        </div>
       </div>
-    </div>
+     <div >
+      <h3><strong>Name: </strong> {{image.image_name}}</h3> 
+      <h3> <strong> Description:</strong> {{image.image_description}}</h3>
+      <h3><strong>Location: </strong>{{image.image_location}}</h3>
+      <h3><strong>Category: </strong>{{image.image_category}}</h3>
+      
+     </div>
+  
+      </div>
+      
     
     </div>
     </div>

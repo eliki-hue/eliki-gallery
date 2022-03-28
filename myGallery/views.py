@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from datetime import datetime as dt
 from django.http import HttpResponse, Http404
 
-from myGallery.models import Image
+from myGallery.models import Image,Category,Location
 # Create your views here.
 
 def home(request):
