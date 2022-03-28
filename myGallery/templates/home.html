@@ -16,12 +16,29 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <div class="container-fluid">
-        
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#pic{{image.id}}">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="width: 100%;height: auto;">
-        <img src="{{image.image.url}}" class="img-responsive" alt="Image">
-      </div>
-    </button>
+        <div style="width: 90vw;
+        margin: 0 auto;
+        max-width: 1170px;
+        display: flex;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-column-gap: 1.5rem;
+        grid-row-gap: 2rem;">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#pic{{image.id}}">
+            <div class="card" style="width: 25rem;">
+              <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+              <div class="card-body">
+                <!-- <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+            
+            <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="width: 100%;height: auto;">
+              <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+            </div> -->
+          </button>
+        </div>
+    
     
     <!-- The modal -->
     <div class="modal fade" id="pic{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
@@ -38,7 +55,7 @@
     <div class="modal-body">
       <div class="row">
         <div class="">
-          <img src="{{image.image.url}}" class="img-responsive" style="width: 200%;height: auto;" alt="Image">
+          <img src="{{image.image.url}}" class="img-responsive" style="width: 100%;height: auto;" alt="Image">
         </div>
       </div>
      <div >
@@ -46,7 +63,8 @@
       <h3> <strong> Description:</strong> {{image.image_description}}</h3>
       <h3><strong>Location: </strong>{{image.image_location}}</h3>
       <h3><strong>Category: </strong>{{image.image_category}}</h3>
-      
+      <input type="text" value="{{image.image.url}}" id="myInput">
+    <button onclick="myFunction()">Copy link</button>
      </div>
   
       </div>
@@ -57,7 +75,25 @@
     </div>
     
     </div>
-        
+    
+    
+    <script>
+    function myFunction() {
+      /* Get the text field */
+      var copyText = document.getElementById("myInput");
+    
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    
+      /* Copy the text inside the text field */
+      navigator.clipboard.writeText(copyText.value);
+      
+      /* Alert the copied text */
+      alert("Copied the text: " + copyText.value);
+    }
+    </script>
+    
     <!-- jQuery library -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap JS -->
@@ -84,7 +120,7 @@
   {% endfor %}
 
 </div>
-div class="row">
+<div class="row">
     <!-- displaying News articles
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <h2 class="text-center"> {{ image.image_name }} </h2>
