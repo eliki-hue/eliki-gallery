@@ -43,10 +43,10 @@ def search_results(request):
         return render(request, 'search.html',{"message":message})
 
 
-def display(request,search_term):
+def display(request,id):
     
-        searched_category = Image.get_image_by_id(search_term)
-        message = f"{search_term}"
+        searched_category = Image.get_image_by_id(id)
+        message = f"{id}"
 
         return render(request, 'search_id.html',{'message':message,"image_id": searched_category})
 
