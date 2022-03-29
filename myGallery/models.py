@@ -1,6 +1,5 @@
 
-from tkinter import image_names
-from unicodedata import category
+
 from django.db import models
 from datetime import datetime as dt
 from cloudinary.models import CloudinaryField
@@ -84,25 +83,5 @@ class Image(models.Model):
         return items
 
 
-    # @classmethod
-    # def todays_news(cls):
-    #     today = dt.date.today()
-    #     images = cls.objects.filter(post = today)
-    #     return images
-
-
-    # @classmethod
-    # def location_images(cls,place):
-    #     images = cls.objects.filter(image_location = place)
-    #     return images
-
-    # @classmethod
-    # def search_by_title(cls,search_term):
-    #     images = cls.objects.filter(title__icontains=search_term)
-    #     return images
-
-    # @classmethod
-    # def days_news(cls,date):
-    #     news = cls.objects.filter(post_date__date = date)
-    #     return news
+   
 
